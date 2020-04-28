@@ -1,18 +1,5 @@
-html 
-   body 
-      h1 Men's Golf Majors
-      div Majors
-        ul
-          for major in golfMajors
-            li(href=`/masters/`)
-          
-          
-          
-          
-          
-          //- a(href=`/masters/`) The Masters 
-          //- a(href=`/pga/`) The PGA Championship 
-          //- a(href=`/open/`) The Open Championship 
-          //- a(href=`/usopen/`) The United States Open 
-
-
+html.index
+include partials/head
+h1 Men's Golf Majors
+image.trophy(src='../images/fourtrophys.jpg', alt='The Four Major Trophies')
+include partials/footer

@@ -1,5 +1,43 @@
-html
-body
-  h1 The Masters 
-  ul
-    list a list of Masters Winners here
+html.masters
+include partials/head
+h1.masters The Masters 
+
+image.trophy(src='../images/masters.jpg', alt='Green Jacket and Masters Trophy')
+body.masters
+  div.type  GET 
+    p.b Displays all Master's winners data
+  div.masters Route: 
+    p.b 'localhost:7142/masters/'
+  div.masters Headers: 
+    p.b Authorization Bearer YOUR_API_KEY_HERE
+
+  div.type GET  
+    p.b Displays Winner from specific year with all other stats //course is static//
+  div.masters Route: 
+    p.b 'localhost:7142/masters/{id}'
+  div.masters Headers: 
+    p.b Authorization Bearer YOUR_API_KEY_HERE
+
+  div.type POST 
+    p.b Post to add Winner 
+  div.masters Route: 
+    p.b 'localhost:7142/masters/'
+  div.masters Headers: 
+    p.b Content-Type: application/json Authorization: Bearer YOUR_API_KEY_HERE
+  div.masters Body:
+    p.b required {'name': 'TEXT', 'Score':'INT', 'Year': 'INT', 'course': 'TEXT'}
+  div.masters Description:
+    p.b Creates a new winner from the provided data in the Body.
+
+  div.type PUT 
+    p.b Fix/Update current list of players
+  div.masters Route:
+    p.b 'localhost/masters'
+  div.masters Headers: 
+    p.b  Authorization: Bearer YOUR_API_KEY_HERE
+  div.masters Body:
+    p.b required {'name': 'TEXT', 'Score':'INT', 'Year': 'INT', 'course': 'TEXT'}
+  div.masters Description:
+    p.b Edits a winner from the provided data in the Body.
+
+include partials/footer

@@ -1,0 +1,43 @@
+html.pga
+include partials/head
+h1.pga The PGA Championship
+
+image.trophy(src='../images/pga.jpg',alt='Wanamaker Trophy')
+body.pga
+  div.type  GET 
+    p.b Displays all PGA Championship winners data
+  div Route: 
+    p.b 'localhost:7142/pga/'
+  div Headers: 
+    p.b Authorization Bearer YOUR_API_KEY_HERE
+
+  div.type GET  
+    p.b Displays Winner(s) from specific year or course
+  div Route: 
+    p.b 'localhost:7142/pga{id}'
+  div Headers: 
+    p.b Authorization Bearer YOUR_API_KEY_HERE
+
+  div.type POST 
+    p.b Post to add Winner 
+  div Route: 
+    p.b 'localhost:7142/pga'
+  div Headers: 
+    p.b Content-Type: application/json Authorization: Bearer YOUR_API_KEY_HERE
+  div Body:
+    p.b required {'name': 'TEXT', 'Score':'INT', 'Year': 'INT', 'course': 'TEXT'}
+  div Description:
+    p.b Creates a new winner from the provided data in the Body.
+
+  div.type PUT 
+    p.b Fix/Update current list of players
+  div Route:
+    p.b 'localhost/majors/masters'
+  div Headers: 
+    p.b  Authorization: Bearer YOUR_API_KEY_HERE
+  div Body:
+    p.b required {'name': 'TEXT', 'Score':'INT', 'Year': 'INT', 'course': 'TEXT'}
+  div Description:
+    p.b Edits a winner from the provided data in the Body.
+
+include partials/footer
