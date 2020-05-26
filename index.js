@@ -1,5 +1,7 @@
 const express = require('express')
 const app = express()
+const bodyParser = require('body-parser')
+const { getAllMastersWinners, getWinnerByName } = require('./controllers/masters')
 
 app.set('view engine', 'pug')
 
@@ -8,9 +10,9 @@ app.use(express.static('public'))
 app.get('/majors', (request, response) => {
   return response.render('index')
 })
-app.get('/masters', (request, response) => {
-  return response.render('masters')
-})
+app.get('/masters', getAllMastersWinners)
+app.get('/masters/:identifier', getWinnerByName)
+
 app.get('/pga', (request, response) => {
   return response.render('pga')
 })
