@@ -21,13 +21,13 @@ const MajorWinners = MajorsWinnersModel(connection, Sequelize, Majors, Years)
 Years.belongsTo(Winners)
 Winners.hasMany(Years)
 
-Years.belongsToMany(Majors, { through: MajorWinners })
 Majors.belongsToMany(Years, { through: MajorWinners })
+Years.belongsToMany(Majors, { through: MajorWinners })
 
 module.exports = {
   Winners,
   Majors,
   Years,
   MajorWinners,
-  Op: Sequelize.op
+  Op: Sequelize.Op
 }
