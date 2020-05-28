@@ -6,12 +6,12 @@ const MajorsModel = require('./majors')
 const YearsModel = require('./years')
 const MajorsWinnersModel = require('./majorWinners')
 
-const environment = process.env.NODE_ENV ? process.env.NODE_ENV : 'development'
-const {
-  username, password, database, host, dialect,
-} = allConfigs[environment]
+const environment = process.env.NODE_ENV || 'development'
+const config = allConfigs[environment]
 
-const connection = new Sequelize(database, username, password, { host, dialect })
+const connection = new Sequelize(config.database, config.username, config.password, {
+  host: config.host, dialect: config.dialect
+})
 
 const Winners = WinnersModel(connection, Sequelize)
 const Majors = MajorsModel(connection, Sequelize)
@@ -21,13 +21,13 @@ const MajorWinners = MajorsWinnersModel(connection, Sequelize, Majors, Years)
 Years.belongsTo(Winners)
 Winners.hasMany(Years)
 
-Majors.belongsToMany(Years, { through: MajorWinners })
 Years.belongsToMany(Majors, { through: MajorWinners })
+Majors.belongsToMany(Years, { through: MajorWinners })
 
 module.exports = {
   Winners,
   Majors,
   Years,
   MajorWinners,
-  Sequelize
-} 
+  Op: Sequelize.op
+}
