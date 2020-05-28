@@ -1,0 +1,43 @@
+html.us
+include partials/head
+h1.us The United States Open 
+
+image.trophy(src='../images/USopen.jpg')
+body
+  div.type  GET 
+    p Displays all US Open winners data
+  div.us Route: 
+    p 'localhost:7142/usopen/'
+  div.us Headers: 
+    p Authorization Bearer YOUR_API_KEY_HERE
+
+  div.type GET  
+    p Displays Winner(s) from specific year or course
+  div.us Route: 
+    p 'localhost:7142/usopen{id}'
+  div.us Headers: 
+    p Authorization Bearer YOUR_API_KEY_HERE
+
+  div.type POST 
+    p Post to add Winner 
+  div.us Route: 
+    p 'localhost:7142/usopen'
+  div.us Headers: 
+    p Content-Type: application/json Authorization: Bearer YOUR_API_KEY_HERE
+  div.us Body:
+    p required {'name': 'TEXT', 'Score':'INT', 'Year': 'INT', 'course': 'TEXT'}
+  div.us Description:
+    p Creates a new winner from the provided data in the Body.
+
+  div.type PUT 
+    p Fix/Update current list of players
+  div.us Route:
+    p 'localhost/majors/masters'
+  div.us Headers: 
+    p  Authorization: Bearer YOUR_API_KEY_HERE
+  div.us Body:
+    p required {'name': 'TEXT', 'Score':'INT', 'Year': 'INT', 'course': 'TEXT'}
+  div.us Description:
+    p Edits a winner from the provided data in the Body.
+
+include partials/footer
