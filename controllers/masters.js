@@ -1,6 +1,6 @@
-const models = require('../models')
+import models from '../models'
 
-const getAllMastersWinners = async (request, response) => {
+export const getAllMastersWinners = async (request, response) => {
   try {
     const getMastersWinners = await models.Majors.findAll({
       where: { id: 1 },
@@ -16,7 +16,7 @@ const getAllMastersWinners = async (request, response) => {
   }
 }
 
-const getMastersWinnerByYear = async (request, response) => {
+export const getMastersWinnerByYear = async (request, response) => {
   try {
     const { identifier } = request.params
 
@@ -33,7 +33,7 @@ const getMastersWinnerByYear = async (request, response) => {
     return response.status(500).send('Unable to retrieve Golfer, please try again')
   }
 }
-const createMastersWinner = async (request, response) => {
+export const createMastersWinner = async (request, response) => {
   try {
     const { nameFirst, nameLast } = request.body
 
@@ -47,7 +47,7 @@ const createMastersWinner = async (request, response) => {
     return response.status(500).send('Unable to create Winner, please try again')
   }
 }
-const createMastersYear = async (request, response) => {
+export const createMastersYear = async (request, response) => {
   try {
     const { year, course, score, winnerId } = request.body
 
@@ -62,7 +62,7 @@ const createMastersYear = async (request, response) => {
   }
 }
 
-const editWinner = async (request, response) => {
+export const editWinner = async (request, response) => {
   try {
     const { editKey } = request.params
 
@@ -80,13 +80,4 @@ const editWinner = async (request, response) => {
     return response.status(500)
       .send('Unable to edit Winner, because I\'m unsure how to do it. Please try again, even though this won\'t work')
   }
-}
-
-
-module.exports = {
-  getAllMastersWinners,
-  getMastersWinnerByYear,
-  createMastersWinner,
-  createMastersYear,
-  editWinner
 }

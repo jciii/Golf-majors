@@ -1,10 +1,10 @@
-const Sequelize = require('sequelize')
-const allConfigs = require('../config/sequelize')
+import Sequelize from 'sequelize'
+import allConfigs from '../config/sequelize'
 
-const WinnersModel = require('./winners')
-const MajorsModel = require('./majors')
-const YearsModel = require('./years')
-const MajorsWinnersModel = require('./majorWinners')
+import WinnersModel from './winners'
+import MajorsModel from './majors'
+import YearsModel from './years'
+import MajorsWinnersModel from './majorWinners'
 
 const environment = process.env.NODE_ENV || 'development'
 const config = allConfigs[environment]

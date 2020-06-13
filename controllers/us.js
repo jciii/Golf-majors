@@ -1,6 +1,6 @@
-const models = require('../models')
+import models from '../models'
 
-const getAllUsOpenWinners = async (request, response) => {
+export const getAllUsOpenWinners = async (request, response) => {
   try {
     const getAllUsOpenWinners = await models.Majors.findAll({
       where: { id: 4 },
@@ -16,7 +16,7 @@ const getAllUsOpenWinners = async (request, response) => {
   }
 }
 
-const getUsOpenWinnerByYearOrCourse = async (request, response) => {
+export const getUsOpenWinnerByYearOrCourse = async (request, response) => {
   try {
     const { identifier } = request.params
 
@@ -43,7 +43,7 @@ const getUsOpenWinnerByYearOrCourse = async (request, response) => {
   }
 }
 
-const createUsOpenWinner = async (request, response) => {
+export const createUsOpenWinner = async (request, response) => {
   try {
     const { nameFirst, nameLast } = request.body
 
@@ -57,7 +57,7 @@ const createUsOpenWinner = async (request, response) => {
     return response.status(500).send('Unable to create year, course or score please try again')
   }
 }
-const createUsOpenYear = async (request, response) => {
+export const createUsOpenYear = async (request, response) => {
   try {
     const { year, course, score, winnerId } = request.body
 
@@ -70,12 +70,4 @@ const createUsOpenYear = async (request, response) => {
   } catch (error) {
     return response.status(500).send('Unable to create year, course, score, please try again')
   }
-}
-
-
-module.exports = {
-  getAllUsOpenWinners,
-  getUsOpenWinnerByYearOrCourse,
-  createUsOpenWinner,
-  createUsOpenYear
 }
