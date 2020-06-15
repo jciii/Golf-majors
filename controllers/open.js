@@ -2,8 +2,10 @@ import models from '../models'
 
 export const getAllOpenWinners = async (request, response) => {
   try {
+    const { identifier } = request.params
+
     const getAllOpenWinners = await models.Majors.findAll({
-      where: { id: 2 },
+      where: { id: identifier },
       include: [{
         model: models.Years,
         include: [{ model: models.Winners }]

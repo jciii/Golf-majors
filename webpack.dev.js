@@ -18,6 +18,11 @@ module.exports = {
       use: ['babel-loader'],
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
-    }],
+    }]
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      API_BASE_URL: JSON.stringify('http://localhost:1337/api'),
+    })
+  ],
 }
