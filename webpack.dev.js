@@ -14,11 +14,22 @@ module.exports = {
     filename: 'bundle.js',
   },
   module: {
-    rules: [{
-      use: ['babel-loader'],
-      test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
-    }]
+    rules: [
+      {
+        use: ['babel-loader'],
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(png|jp(e*)g|svg)$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: false,
+          }
+        }]
+      }
+    ]
   },
   plugins: [
     new webpack.DefinePlugin({

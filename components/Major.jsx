@@ -2,18 +2,29 @@ import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-const Team = styled.div`
+const Tourn = styled.div`
   font-size: 20px;
   margin-bottom: 10px;
 `
+
 const Link = styled(NavLink)`
-  text-decoration: none;
-`
+  color: palevioletred;
+  display: block;
+  margin: 0.5em 0;
+  font-family: Helvetica, Arial, sans-serif;
+
+  &:hover {
+    text-decoration: none;
+  }
+  &.active {
+    color: red;
+  }
+`;
 
 export default ({ tournyId, nameMajor }) => (
   <>
-    <Team key={tournyId}>
-      <Link to={`/majors/${tournyId}`}>{`${nameMajor} ${tournyId}`}</Link>
-    </Team>
+    <Tourn key={tournyId}>
+      <Link to={`/majors/${tournyId}`}>{`${nameMajor}`}</Link>
+    </Tourn>
   </>
 )

@@ -33,3 +33,8 @@ export const retrieveUsOpen = async () => {
 
   return UsOpens
 }
+
+export const filteredName = (nameList, term) => nameList
+  .filter(name => name.years = name.years
+    .filter(first => (first.winner.nameFirst.toLowerCase()
+      .includes(term.toLowerCase()))))
