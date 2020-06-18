@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { retriveMajors } from '../utils/Winners'
-import Major from '../components/major'
+import Major from '../components/Major'
 import Page from '../components/Page'
 import Title from '../components/Title'
-
+import retrieveMajors from '../utils/majors'
 
 export default () => {
   const [major, setMajor] = useState([])
 
   useEffect(() => {
     async function pullData() {
-      const gotMajors = await retriveMajors()
-
+      const gotMajors = await retrieveMajors()
       setMajor(gotMajors)
     }
     pullData()

@@ -15,23 +15,23 @@ module.exports = {
       updatedAt: {
         type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP')
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'),
       },
-      deletedAt: { type: Sequelize.DATE }
+      deletedAt: { type: Sequelize.DATE },
     })
 
     await queryInterface.createTable('majors', {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
       major: {
-        type: Sequelize.STRING, allowNull: false
+        type: Sequelize.STRING, allowNull: false,
       },
       createdAt: { type: Sequelize.DATE, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP') },
       updatedAt: {
         type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP')
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'),
       },
-      deletedAt: { type: Sequelize.DATE }
+      deletedAt: { type: Sequelize.DATE },
     })
 
     await queryInterface.createTable('years', {
@@ -44,21 +44,21 @@ module.exports = {
       updatedAt: {
         type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP')
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'),
       },
-      deletedAt: { type: Sequelize.DATE }
+      deletedAt: { type: Sequelize.DATE },
     })
 
     return queryInterface.createTable('majorWinners', {
       majorId: { type: Sequelize.INTEGER, references: { model: 'majors', key: 'id' } },
       yearId: { type: Sequelize.INTEGER, references: { model: 'years', key: 'id' } },
-      createdAt: { type: Sequelize.DATE, allowNull: false, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'), },
+      createdAt: { type: Sequelize.DATE, allowNull: false, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP') },
       updatedAt: {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'),
       },
-      deletedAt: { type: Sequelize.DATE, },
+      deletedAt: { type: Sequelize.DATE },
     })
   },
 
@@ -75,5 +75,5 @@ module.exports = {
     await queryInterface.dropTable('winners')
 
     return queryInterface.dropTable('majors')
-  }
+  },
 }

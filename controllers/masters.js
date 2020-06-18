@@ -6,8 +6,8 @@ export const getAllMastersWinners = async (request, response) => {
       where: { id: 1 },
       include: [{
         model: models.Years,
-        include: [{ model: models.Winners }]
-      }]
+        include: [{ model: models.Winners }],
+      }],
     })
 
     return response.send(getMastersWinners)
@@ -23,9 +23,9 @@ export const getMastersWinnerByYear = async (request, response) => {
     const winner = await models.Years.findOne({
       where: {
         year:
-          { [models.Op.like]: `%${identifier}%` }
+          { [models.Op.like]: `%${identifier}%` },
       },
-      include: [{ model: models.Winners }]
+      include: [{ model: models.Winners }],
     })
 
     return response.send(winner)
@@ -66,16 +66,16 @@ export const editWinner = async (request, response) => {
   try {
     const { editKey } = request.params
 
-    const editWinner = models.Winners.update({
+    const edit = models.Winners.update({
       where: {
         [models.Op.or]: [
           { nameFirst: { [models.Op.like]: `%${editKey}%` } },
-          { nameLast: { [models.Op.like]: `%${editKey}%` } }
-        ]
-      }
+          { nameLast: { [models.Op.like]: `%${editKey}%` } },
+        ],
+      },
     })
 
-    return response.send(editWinner)
+    return response.send(edit)
   } catch (error) {
     return response.status(500)
       .send('Unable to edit Winner, because I\'m unsure how to do it. Please try again, even though this won\'t work')

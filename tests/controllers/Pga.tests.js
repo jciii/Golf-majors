@@ -3,9 +3,9 @@
 const chai = require('chai')
 const sinon = require('sinon')
 const sinonChai = require('sinon-chai')
-const models = require('../../models')
 const { beforeEach, after, afterEach, describe, it } = require('mocha')
-const { PGAList, singlePGA, singleWinner, singleYear } = require('../mocks/Pga')
+const models = require('../../models')
+const { PGAList, singlePGA, singleWinner, singleYear } = require('../mocks/pga')
 const { getAllPGAWinners, getPGAWinnerByYearOrCourse, createPGAWinner, createPGAYear } = require('../../controllers/pga')
 
 chai.use(sinonChai)

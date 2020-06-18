@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import LD from '../components/Dude'
+import Dude from './Dude'
 
 const Title = styled.div`
   font-size: 24px;
@@ -9,7 +9,7 @@ const Title = styled.div`
 `
 export default () => (
   <>
-    <LD />
-    <Title>The Mens Golf Majors</Title>
+    <Dude />
+    <Title> The Mens Golf Majors </Title>
   </>
 )

@@ -11,14 +11,14 @@ const Button = styled.button`
 `
 Button.defaultProps = {
   theme: {
-    main: "palevioletred"
-  }
+    main: 'palevioletred',
+  },
 }
-const theme = {
-  main: "tomato"
-};
-export default ({ state, listReset }) => (
+
+export default ({ useState }) => (
   <>
-    <Button type="button" onClick={() => { { state('') } { listReset(openData) } }} > Clear</Button>
+    <Button type="button" onClick={(useState)}>Clear</Button>
   </>
 )
+
+// Cannot get it to reset state. further work needed

@@ -2,10 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-const Tourn = styled.div`
-  font-size: 20px;
-  margin-bottom: 10px;
-`
 
 const Link = styled(NavLink)`
   color: palevioletred;
@@ -21,10 +17,6 @@ const Link = styled(NavLink)`
   }
 `
 
-export default ({ tournyId, nameMajor }) => (
-  <>
-    <Tourn key={tournyId}>
-      <Link to={`/winners/${tournyId}`}>{`${nameMajor}`}</Link>
-    </Tourn>
-  </>
+export default () => (
+  <Link to="/">&lt;&lt; Back to the Tee Box</Link>
 )

@@ -2,8 +2,8 @@
 const chai = require('chai')
 const sinon = require('sinon')
 const sinonChai = require('sinon-chai')
-const models = require('../../models')
 const { before, afterEach, describe, it } = require('mocha')
+const models = require('../../models')
 const { mastersList, singleMasters, singleWinner, singleYear } = require('../mocks/masters')
 const { getAllMastersWinners, getMastersWinnerByYear, createMastersWinner, createMastersYear } = require('../../controllers/masters')
 

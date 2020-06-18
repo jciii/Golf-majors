@@ -3,8 +3,8 @@
 const chai = require('chai')
 const sinon = require('sinon')
 const sinonChai = require('sinon-chai')
-const models = require('../../models')
 const { beforeEach, after, afterEach, describe, it } = require('mocha')
+const models = require('../../models')
 const { UsOpenList, singleUsOpen, singleWinner, singleYear } = require('../mocks/UsOpen')
 const { getAllUsOpenWinners, getUsOpenWinnerByYearOrCourse, createUsOpenWinner, createUsOpenYear } = require('../../controllers/us')
 

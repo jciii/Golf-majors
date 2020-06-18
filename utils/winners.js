@@ -1,40 +1,20 @@
-import fetchMasters from '../actions/masters'
-import fetchMajors from '../actions/majors'
-import fetchOpens from '../actions/opens'
-import fetchPga from '../actions/Pga'
-import fetchUsOpens from '../actions/usOpens'
+import fetchTournament from '../actions/tournaments'
 
-export const retriveMajors = async () => {
-  const majors = await fetchMajors()
+export const getIdFromLocation = location => (location && location.pathname
+  ? location.pathname.split('/winners/').pop()
+  : ''
+)
 
-  return majors
+export const retrieveYears = async (location) => {
+  const id = getIdFromLocation(location)
+
+  const masters = await fetchTournament(id)
+
+  return masters.years
 }
 
-export const retrieveMasters = async () => {
-  const masters = await fetchMasters()
-
-  return masters
-}
-
-export const retrieveOpens = async () => {
-  const opens = await fetchOpens()
-
-  return opens
-}
-
-export const retrievePga = async () => {
-  const Pgas = await fetchPga()
-
-  return Pgas
-}
-
-export const retrieveUsOpen = async () => {
-  const UsOpens = await fetchUsOpens()
-
-  return UsOpens
-}
-
-export const filteredName = (nameList, term) => nameList
-  .filter(name => name.years = name.years
-    .filter(first => (first.winner.nameFirst.toLowerCase()
-      .includes(term.toLowerCase()))))
+export const filterByGolfer = (yearList, name) => yearList.filter(year => (
+  year.winner.nameFirst.toLowerCase()
+    .includes(name.toLowerCase())
+) || year.winner.nameLast.toLowerCase()
+  .includes(name.toLowerCase()))

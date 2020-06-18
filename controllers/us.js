@@ -2,15 +2,15 @@ import models from '../models'
 
 export const getAllUsOpenWinners = async (request, response) => {
   try {
-    const getAllUsOpenWinners = await models.Majors.findAll({
+    const usOPenWinners = await models.Majors.findAll({
       where: { id: 4 },
       include: [{
         model: models.Years,
-        include: [{ model: models.Winners }]
-      }]
+        include: [{ model: models.Winners }],
+      }],
     })
 
-    return response.send(getAllUsOpenWinners)
+    return response.send(usOPenWinners)
   } catch (error) {
     return response.status(500).send('Unable to retrieve Golfer, please try again')
   }
@@ -22,7 +22,7 @@ export const getUsOpenWinnerByYearOrCourse = async (request, response) => {
 
     const yearOrCourse = await models.Majors.findAll({
       where: {
-        id: 4
+        id: 4,
       },
       include:
         [{
@@ -30,11 +30,11 @@ export const getUsOpenWinnerByYearOrCourse = async (request, response) => {
           where: {
             [models.Op.or]: [
               { year: { [models.Op.like]: `%${identifier}%` } },
-              { course: { [models.Op.like]: `%${identifier}%` } }
-            ]
+              { course: { [models.Op.like]: `%${identifier}%` } },
+            ],
           },
-          include: [{ model: models.Winners }]
-        }]
+          include: [{ model: models.Winners }],
+        }],
     })
 
     return response.send(yearOrCourse)

@@ -11,7 +11,7 @@ module.exports = {
       { major: 'The Masters' },
       { major: 'The Open' },
       { major: 'The PGA Championship' },
-      { major: 'The US Open' }
+      { major: 'The US Open' },
     ])
 
     await queryInterface.bulkInsert('winners', [
@@ -273,7 +273,7 @@ module.exports = {
       { year: 2016, course: 'Oakmont Country Club', score: 276, winnerId: 125 },
       { year: 2017, course: 'Erin Hills', score: 272, winnerId: 126 },
       { year: 2018, course: 'Shinnecock Hills', score: 281, winnerId: 127 },
-      { year: 2019, course: 'Pebble Beach Golf Links', score: 271, winnerId: 128 }
+      { year: 2019, course: 'Pebble Beach Golf Links', score: 271, winnerId: 128 },
     ])
 
     return queryInterface.bulkInsert('majorWinners', [
@@ -404,7 +404,7 @@ module.exports = {
       { majorId: 4, yearId: 125 },
       { majorId: 4, yearId: 126 },
       { majorId: 4, yearId: 127 },
-      { majorId: 4, yearId: 128 }
+      { majorId: 4, yearId: 128 },
     ])
   },
 
@@ -424,5 +424,5 @@ module.exports = {
     await queryInterface.bulkDelete('winners')
 
     return queryInterface.bulkDelete('years')
-  }
+  },
 }

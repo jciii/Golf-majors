@@ -2,25 +2,25 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import path from 'path'
 import {
-  getAllMastersWinners, getMastersWinnerByYear, createMastersWinner, createMastersYear, editWinner
+  getAllMastersWinners, getMastersWinnerByYear, createMastersWinner, createMastersYear, editWinner,
 } from './controllers/masters'
 import {
-  getAllOpenWinners, getOpenWinnerByYearOrCourse, createOpenWinner, createOpenYear
+  getAllOpenWinners, getOpenWinnerByYearOrCourse, createOpenWinner, createOpenYear,
 } from './controllers/open'
 import {
-  getAllUsOpenWinners, getUsOpenWinnerByYearOrCourse, createUsOpenWinner, createUsOpenYear
+  getAllUsOpenWinners, getUsOpenWinnerByYearOrCourse, createUsOpenWinner, createUsOpenYear,
 } from './controllers/us'
 import {
   getAllPGAWinners, getPGAWinnerByYearOrCourse, createPGAWinner, createPGAYear,
 } from './controllers/pga'
-import { getSingleMajor, getAllMajors } from './controllers/allMajors'
+import { getAllMajors, getSingleMajor } from './controllers/allMajors'
+
 const app = express()
 
 app.use(express.static('public'))
 
 app.get('/api/majors', getAllMajors)
 app.get('/api/majors/:identifier', getSingleMajor)
-
 
 app.get('/api/masters/:identifier', getAllMastersWinners)
 app.get('/api/masters/:identifier', getMastersWinnerByYear)
@@ -43,7 +43,9 @@ app.post('/api/open/winnerAdd', bodyParser.json(), createOpenWinner)
 app.post('/api/open/yearsAdd', bodyParser.json(), createOpenYear)
 
 app.put('/api/masters/:editKey', bodyParser(), editWinner)
+
 app.all('*', (request, response) => response.sendFile(path.resolve(__dirname, 'public', 'index.html')))
+
 app.listen(1337, () => {
   // eslint-disable-next-line no-console
   console.log('Listening on 1337....')

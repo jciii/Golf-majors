@@ -25,7 +25,7 @@ module.exports = {
         use: [{
           loader: 'url-loader',
           options: {
-            limit: false,
+            limit: true,
           }
         }]
       }

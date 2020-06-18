@@ -5,4 +5,3 @@ export default (connection, Sequelize, Winners) => connection.define('years', {
   score: { type: Sequelize.INTEGER, allowNull: false },
   winnerId: { type: Sequelize.INTEGER, references: { model: Winners, key: 'id' } },
 }, { paranoid: true })
-

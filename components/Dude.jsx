@@ -1,14 +1,15 @@
 import React from 'react'
-// import styled from 'styled-components'
-import LD from '../img/LD.png'
+import styled from 'styled-components'
+import Dude from '../img/dude.jpg'
 
-// const image = styled.img`
-// height:50%;
-// widthL 50%;
-// verticle-align: middle;
-// `
+const Image = styled.img`
+width: 85%;
+border-radius: 10px;
+margin: 15px;
+verticle-align: middle;
+`
 export default () => (
   <>
-    <LD src={LD} alt='4 Major Trophies' />
+    <Image src={Dude} alt="4 Major Trophies" />
   </>
 )
