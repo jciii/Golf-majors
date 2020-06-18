@@ -1,0 +1,16 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "targets": {
+          "node": "13.7.0"
+        }
+      }
+    ],
+    "@babel/react"
+  ],
+  "plugins": [
+    "babel-plugin-styled-components"
+  ]
+}
